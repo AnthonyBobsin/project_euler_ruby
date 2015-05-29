@@ -8,4 +8,4 @@ sum = 0
 		sum += num
 	end
 end
-puts(sum)
+puts "Solution: #{sum}" 
