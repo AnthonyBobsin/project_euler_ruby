@@ -1,25 +1,20 @@
 # The prime factors of 13195 are 5, 7, 13 and 29.
 # What is the largest prime factor of the number 600851475143 ?
 
-def is_prime? num
+def prime_factors num
+	factors = []
 	test_value = 2
-	while test_value < num && test_value != num do
-		if num % test_value == 0
-			return false
+	while num > 1 do
+		while num % test_value == 0 do
+			factors.push num
+			num = num / test_value
 		end
 		test_value += 1
 	end
-	return true
+	return factors
 end
 
-dividend = 600851475143
-quotient = dividend
-divisor = 2
+prime_factors = prime_factors 600851475143
+prime_factors.sort!
 
-# until is_prime? quotient
-# 	quotient = dividend / divisor
-# 	divisor += 1
-# end
-puts is_prime? 100141912523
-
-puts "Solution: #{quotient}"
+puts prime_factors
