@@ -1,6 +1,8 @@
 # A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
+beginning_time = Time.now
+
 class String
   def first
     self[0]
@@ -30,45 +32,24 @@ end
 
 LARGEST_THREE_DIGIT_NUM = 999
 
-# This method is going to reduce one number all the way to zero first,
-# continously multiplying it with the other number until the product
-# is a palindrome.
-def one_number_reduce
-  reduce_number_one = reduce_number_two = LARGEST_THREE_DIGIT_NUM
+def loop_through_and_reduce
+  reduce_number = range_top = LARGEST_THREE_DIGIT_NUM
+  range_bottom = 99
   palindrome = 1
-  while reduce_number_one > 99
-    product = reduce_number_one * reduce_number_two
-    if is_palindrome?(product) && product > palindrome
-      palindrome = product
+  while reduce_number > 99
+    (range_bottom..range_top ).each do | current_num |
+      product = current_num * reduce_number
+      if is_palindrome?(product) && product > palindrome
+        palindrome = product
+      end
     end
-    reduce_number_one -= 1
+    reduce_number -= 1
   end
   palindrome
 end
 
-# This method is going to alternate reducing one number from each,
-# until the product is a palindrome.
-def two_number_reduce
-  reduce_number_one = reduce_number_two = LARGEST_THREE_DIGIT_NUM
-  palindrome = 1
-  current_number = 1
-  while reduce_number_one > 99 && reduce_number_two > 99
-    product = reduce_number_one * reduce_number_two
-    if is_palindrome?(product) && product > palindrome
-      palindrome = product
-    end
-    if current_number == 1
-      reduce_number_one -= 1
-      current_number = 2
-    elsif current_number == 2
-      reduce_number_two -= 1
-      current_number = 1
-    end
-  end
-  palindrome
-end
+result = loop_through_and_reduce
 
-one_number_reduce_result = one_number_reduce
-two_number_reduce_result = two_number_reduce
+end_time = Time.now
 
-puts "Solution: #{one_number_reduce_result >= two_number_reduce_result ? one_number_reduce_result : two_number_reduce_result}"
+puts "Solution: #{result}. Found in #{end_time - beginning_time} ms"
