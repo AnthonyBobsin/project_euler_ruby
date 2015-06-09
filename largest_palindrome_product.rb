@@ -28,13 +28,18 @@ def is_palindrome? num
   true
 end
 
-@LARGEST_THREE_DIGIT_NUM = 999
+LARGEST_THREE_DIGIT_NUM = 999
 
+# This method is going to reduce one number all the way to zero first,
+# continously multiplying it with the other number until the product
+# is a palindrome.
 def one_number_reduce
-
+  reduce_number_one = reduce_number_two = 999
+  
 end
 
+# This method is going to alternate reducing one number from each,
+# until the product is a palindrome.
 def two_number_reduce
 
 end
-
