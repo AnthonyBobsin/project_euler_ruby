@@ -34,12 +34,41 @@ LARGEST_THREE_DIGIT_NUM = 999
 # continously multiplying it with the other number until the product
 # is a palindrome.
 def one_number_reduce
-  reduce_number_one = reduce_number_two = 999
-  
+  reduce_number_one = reduce_number_two = LARGEST_THREE_DIGIT_NUM
+  palindrome = 1
+  while reduce_number_one > 99
+    product = reduce_number_one * reduce_number_two
+    if is_palindrome?(product) && product > palindrome
+      palindrome = product
+    end
+    reduce_number_one -= 1
+  end
+  palindrome
 end
 
 # This method is going to alternate reducing one number from each,
 # until the product is a palindrome.
 def two_number_reduce
-
+  reduce_number_one = reduce_number_two = LARGEST_THREE_DIGIT_NUM
+  palindrome = 1
+  current_number = 1
+  while reduce_number_one > 99 && reduce_number_two > 99
+    product = reduce_number_one * reduce_number_two
+    if is_palindrome?(product) && product > palindrome
+      palindrome = product
+    end
+    if current_number == 1
+      reduce_number_one -= 1
+      current_number = 2
+    elsif current_number == 2
+      reduce_number_two -= 1
+      current_number = 1
+    end
+  end
+  palindrome
 end
+
+one_number_reduce_result = one_number_reduce
+two_number_reduce_result = two_number_reduce
+
+puts "Solution: #{one_number_reduce_result >= two_number_reduce_result ? one_number_reduce_result : two_number_reduce_result}"
