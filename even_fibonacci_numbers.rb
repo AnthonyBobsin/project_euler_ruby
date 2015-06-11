@@ -6,6 +6,7 @@ fibonacci_two_terms = [1,1]
 limit = 4000000
 sum = 0
 next_value = 0
+beginning = Time.now
 
 while next_value < limit do
 	if next_value % 2 == 0
@@ -16,5 +17,6 @@ while next_value < limit do
 	fibonacci_two_terms[1] = next_value
 end
 
-puts "Solution: #{sum}"
+end = Time.now
+puts "Solution: #{sum}. Found in #{end - beginning} ms"
 
