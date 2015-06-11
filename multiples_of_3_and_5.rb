@@ -3,9 +3,11 @@
 
 sum = 0
 
+beginning = Time.now
 (0...1000).each do | num |
 	if num % 3 == 0 || num % 5 == 0
 		sum += num
 	end
 end
-puts "Solution: #{sum}" 
+end = Time.now
+puts "Solution: #{sum}. Found in #{end - beginning} ms" 
