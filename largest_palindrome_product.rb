@@ -46,10 +46,8 @@ def loop_through_and_reduce
   palindrome
 end
 
-beginning_time = Time.now
-
+begin_time = Time.now
 result = loop_through_and_reduce
-
 end_time = Time.now
 
-puts "Solution: #{result}. Found in #{end_time - beginning_time} ms"
+puts "Solution: #{result}. Found in #{end_time - begin_time} ms"
