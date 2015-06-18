@@ -6,22 +6,22 @@
 
 def sum_of_squares
   sum = 0
-  (1...100).each do | num |
-
+  (1..100).each do | num |
+    sum += num * num
   end
   return sum
 end
 
 def square_of_sum
   sum = 0
-  (1...100).each do | num |
-
+  (1..100).each do | num |
+    sum += num
   end
-  return sum
+  return sum * sum
 end
 
 begin_time = Time.now
-solution = sum_of_squares - square_of_sum
+solution = square_of_sum - sum_of_squares
 end_time = Time.now
 
 

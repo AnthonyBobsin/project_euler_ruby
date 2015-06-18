@@ -19,4 +19,3 @@ end
 
 end_time = Time.now
 puts "Solution: #{sum}. Found in #{end_time - begin_time} ms"
-
