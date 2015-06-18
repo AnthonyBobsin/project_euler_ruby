@@ -6,11 +6,12 @@ prime_value = 10001
 def is_prime? num
   is_prime = true
   temp_num = 2
-  while test_num < num && is_prime
-    if num % test_num == 0
+  while temp_num < num && is_prime
+    if num % temp_num == 0
       is_prime = false
     end
     temp_num += 1
   end
   is_prime
 end
+
