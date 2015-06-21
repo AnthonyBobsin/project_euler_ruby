@@ -40,6 +40,9 @@ def greatest_adjacent_product
   greatest_product
 end
 
+begin_time = Time.now
+solution = greatest_adjacent_product
+end_time = Time.now
 
-puts greatest_adjacent_product
+puts "Solution: #{solution}. Found in #{end_time - begin_time}ms"
 
